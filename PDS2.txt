@@ -1,0 +1,8 @@
+As per the problem statement, the processor word size and instruction size are 32 bits. So, we need to have an instruction memory of at
+least 2^32 bytes. However, as we do not need to use the entire memory, we can choose a smaller size.
+
+For the data memory, we need to decide upon the amount of memory required to store data. This depends on the application that the processor 
+is intended for. Since there is no information given about the specific application, we can assume a moderate size of 2^16 bytes for data
+memory.
+
+Therefore, we can decide to have an instruction memory of 64KB (2^16 words), and a data memory of 64KB (2^16 bytes).

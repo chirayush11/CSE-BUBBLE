@@ -1,0 +1,27 @@
+For the CSE-BUBBLE processor, we assume a total of 32 registers, each of 32-bit size. The registers are numbered from 0 to 31. 
+The following registers are used for specific purposes:
+
+$zero (0): This register always holds the value 0.
+$at (1): This register is reserved for the assembler and is not used by the programmer.
+$v0-$v1 (2-3): These registers are used to hold the return values from a subroutine.
+$a0-$a3 (4-7): These registers are used to pass arguments to a subroutine.
+$t0-$t7 (8-15): These registers are used for temporary storage.
+$s0-$s7 (16-23): These registers are used for saving values that need to be preserved across subroutine calls.
+$t8-$t9 (24-25): These registers are used for temporary storage.
+$k0-$k1 (26-27): These registers are reserved for use by the operating system kernel.
+$gp (28): This register is used as a global pointer.
+$sp (29): This register is used as a stack pointer.
+$fp (30): This register is used as a frame pointer.
+$ra (31): This register is used to hold the return address from a subroutine.
+In addition to these registers, the PC (program counter) register is used to hold the address of the next instruction to be executed.
+
+The usage protocol for the registers is as follows:
+
+The registers $zero, $at, $v0-$v1, and $a0-$a3 are caller-saved, meaning that they can be modified by a subroutine and the changes will not
+be preserved across a subroutine call.
+The registers $t0-$t9 and $s0-$s7 are callee-saved, meaning that they must be preserved across subroutine calls. The subroutine must save
+these registers on the stack if they are modified and restore them before returning.
+The registers $k0-$k1 are reserved for use by the operating system kernel and should not be modified by user programs.
+The registers $gp, $sp, $fp, and $ra are used for specific purposes and their usage is prescribed by the instruction set architecture.
+It is important to note that the above usage protocol is a convention and can be modified based on the specific requirements of a program.
+However, in order to ensure compatibility with other programs, it is generally recommended to follow the convention.
